@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    resize: none;
+  }
+
+  .last-line {
+    display: flex;
+    margin-top: 5px;
+  }
+
+  .color, .rgba {
+    display: flex;
+    align-items: center;
+  }
+
+  .color input {
+    width: 7em;
+    text-align: center;
+  }
+
+  .rgba input {
+    width: 3em;
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+  <div>
+    <textarea id="text" cols="30" rows="10"></textarea>
+    <br>
+    <div class="last-line">
+      <div class="color">
+        Color
+        <input id="color" type="text" value="#FFF">
+      </div>
+      <div class="rgba">
+        RGBA
+        <input id="rgbaR" type="text" value="0">
+        <input id="rgbaG" type="text" value="0">
+        <input id="rgbaB" type="text" value="0">
+        <input id="rgbaA" type="text" value="0.7">
+      </div>
+      <button id="displayButton">Display</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

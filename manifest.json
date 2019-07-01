@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Text on Webpage",
+  "version": "1.0",
+  "permissions": [
+    "tabs",
+    "*://*/*"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
+
