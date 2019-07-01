@@ -9,13 +9,14 @@
     const rgbaB = document.getElementById('rgbaB').value;
     const rgbaA = document.getElementById('rgbaA').value;
 
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      console.log(tabs[0].id);
-      chrome.tabs.sendMessage(tabs[0].id, {
+    chrome.tabs.executeScript({
+      code: 'var data = ' + JSON.stringify({
         text,
         color,
         rgba: `rgba(${rgbaR},${rgbaG},${rgbaB},${rgbaA})`,
-      });
+      }),
+    }, () => {
+      chrome.tabs.executeScript({ file: "content.js" });
     });
   });
 })();

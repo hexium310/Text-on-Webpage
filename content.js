@@ -1,4 +1,4 @@
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+(() => {
   const oldFloatingWindow = document.getElementById('textOnWebpageExtensionFloatingWindow');
   oldFloatingWindow && oldFloatingWindow.remove();
 
@@ -14,11 +14,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
   floatingWindow.appendChild(closingButton);
   floatingWindow.setAttribute('id', 'textOnWebpageExtensionFloatingWindow');
-  floatingWindow.innerHTML += request.text.replace(/\n/g, '<br>');
+  floatingWindow.innerHTML += data.text.replace(/\n/g, '<br>');
   floatingWindow.style.display = 'flex';
   floatingWindow.style.flexDirection = 'column';
-  floatingWindow.style.color = request.color;
-  floatingWindow.style.backgroundColor = request.rgba;
+  floatingWindow.style.color = data.color;
+  floatingWindow.style.backgroundColor = data.rgba;
   floatingWindow.style.position = 'absolute';
   floatingWindow.style.top = '100px';
   floatingWindow.style.right = '20px';
@@ -30,4 +30,4 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   document.getElementById('textOnWebpageExtensionClosingButton').addEventListener('click', () => {
     document.getElementById('textOnWebpageExtensionFloatingWindow').remove();
   });
-});
+})();
