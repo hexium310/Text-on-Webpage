@@ -6,24 +6,15 @@
 
   const closingButton = document.createElement('div');
   closingButton.setAttribute('id', 'textOnWebpageExtensionClosingButton');
+  closingButton.setAttribute('class', 'text-on-webpage-extension-closing-button');
   closingButton.textContent = '×';
-  closingButton.style.fontSize = 'large';
-  closingButton.style.fontWeight = 'bold';
-  closingButton.style.marginLeft = 'auto';
-  closingButton.style.cursor = 'pointer';
 
   floatingWindow.appendChild(closingButton);
   floatingWindow.setAttribute('id', 'textOnWebpageExtensionFloatingWindow');
+  floatingWindow.setAttribute('class', 'text-on-webpage-extension-floating-window');
   floatingWindow.innerHTML += data.text.replace(/\n/g, '<br>');
-  floatingWindow.style.display = 'flex';
-  floatingWindow.style.flexDirection = 'column';
   floatingWindow.style.color = data.color;
   floatingWindow.style.backgroundColor = data.rgba;
-  floatingWindow.style.position = 'absolute';
-  floatingWindow.style.top = '100px';
-  floatingWindow.style.right = '20px';
-  floatingWindow.style.fontSize = 'small';
-  floatingWindow.style.zIndex = 1000;
 
   document.body.appendChild(floatingWindow);
 
