@@ -1,5 +1,5 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  const oldFloatingWindow = document.getElementById('textOnWebpageExtensionFloatingWindow')
+  const oldFloatingWindow = document.getElementById('textOnWebpageExtensionFloatingWindow');
   oldFloatingWindow && oldFloatingWindow.remove();
 
   const floatingWindow = document.createElement('div');
