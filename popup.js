@@ -16,7 +16,7 @@
         rgba: `rgba(${rgbaR},${rgbaG},${rgbaB},${rgbaA})`,
       }),
     }, () => {
-      chrome.tabs.executeScript({ file: "content.js" });
+      chrome.tabs.executeScript({ file: "floating-window.js" });
     });
   });
 })();
