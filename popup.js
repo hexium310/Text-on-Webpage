@@ -25,7 +25,7 @@
         var isCSSInserted;
         isCSSInserted = isCSSInserted === undefined ? false : true;
       `,
-    }, (results) => {
+    }, () => {
       chrome.tabs.executeScript({ file: 'floating-window.js' });
       !cssState.isInserted && chrome.tabs.insertCSS({ file: 'floating-window.css' }, () => {
         setCssState(true);

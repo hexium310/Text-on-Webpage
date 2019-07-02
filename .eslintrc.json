@@ -1,0 +1,35 @@
+{
+  "root":  true,
+  "extends": [
+    "eslint:recommended"
+  ],
+  "rules": {
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "error",
+          "warn"
+        ]
+      }
+    ],
+    "semi": ["error", "always"],
+    "no-extra-boolean-cast": "off",
+    "object-curly-spacing": ["error", "always"],
+    "arrow-parens": ["error", "always"],
+    "block-spacing": "error",
+    "comma-dangle": ["error", "always-multiline"]
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "globals": {
+    "chrome": false,
+    "data": false
+  }
+}
