@@ -33,6 +33,7 @@
   const floatingWindow = document.createElement('div');
   floatingWindow.setAttribute('id', 'textOnWebpageExtensionFloatingWindow');
   floatingWindow.setAttribute('class', 'text-on-webpage-extension-floating-window');
+  floatingWindow.setAttribute('draggable', 'true');
   floatingWindow.style.color = data.color;
   floatingWindow.style.backgroundColor = data.rgba;
   floatingWindow.insertAdjacentElement('beforeend', windowMenuBar);
@@ -40,11 +41,16 @@
 
   document.body.insertAdjacentElement('beforeend', floatingWindow);
 
+  const setFloatingWindowWidth = () => {
+    floatingWindow.style.width = `${floatingWindow.getBoundingClientRect().width - 20}px`;
+  };
+
   closingButton.addEventListener('click', () => {
     floatingWindow.remove();
   });
 
   collapsingButton.addEventListener('click', () => {
+    setFloatingWindowWidth();
     contents.style.display = 'none';
     collapsingButton.style.display = 'none';
     expandingButton.style.display = 'block';
@@ -54,5 +60,16 @@
     contents.style.display = 'block';
     expandingButton.style.display = 'none';
     collapsingButton.style.display = 'block';
+  });
+
+  floatingWindow.addEventListener('dragstart', (e) => {
+    setFloatingWindowWidth();
+    const pageX = e.pageX - floatingWindow.offsetLeft;
+    const pageY = e.pageY - floatingWindow.offsetTop;
+
+    document.body.addEventListener('dragend', (e) => {
+      floatingWindow.style.left = `${e.pageX - pageX}px`;
+      floatingWindow.style.top = `${e.pageY - pageY}px`;
+    });
   });
 })();
