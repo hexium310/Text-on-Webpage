@@ -20,6 +20,7 @@
     }, () => {
       chrome.tabs.executeScript({ file: 'floating-window.js' });
       chrome.tabs.insertCSS({ file: 'floating-window.css' });
+      window.close();
     });
   });
 })();
