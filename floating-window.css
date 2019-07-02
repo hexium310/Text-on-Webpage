@@ -30,3 +30,7 @@
 .text-on-webpage-extension-closing-button {
   margin-left: 10px;
 }
+
+.text-on-webpage-extension-contents {
+  font-size: small;
+}
